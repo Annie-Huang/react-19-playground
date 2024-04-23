@@ -1,6 +1,10 @@
 import { useFormState } from 'react-dom';
 
 const addToCart = (prevState, queryData) => {
+  console.log('prevState=', prevState);
+  console.log('queryData=', queryData);
+  console.log("queryData.get('itemID')=", queryData.get('itemID'));
+
   const itemID = queryData.get('itemID');
   if (itemID === '1') {
     return 'Added to cart';
@@ -10,6 +14,13 @@ const addToCart = (prevState, queryData) => {
 };
 
 const AddToCartForm = ({ itemID, itemTitle }) => {
+  /*
+  * function useFormState<State>(
+        action: (state: Awaited<State>) => State | Promise<State>,
+        initialState: Awaited<State>,
+        permalink?: string,
+    ): [state: Awaited<State>, dispatch: () => void];
+  * */
   const [message, formAction] = useFormState(addToCart, null);
 
   return (
