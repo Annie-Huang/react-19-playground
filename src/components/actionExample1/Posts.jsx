@@ -12,10 +12,11 @@ const PostItem = ({ post }) => {
 
 // PostForm component
 const PostForm = ({ addPost }) => {
+  // You don't have to add 'async' if you are not making api call.
   const formAction = async (formData) => {
     // We have direct access to the form data
     const newPost = {
-      title: formData.get('title'),
+      title: formData.get('title'), // The get is link to the 'name' attribute in the <input>
       body: formData.get('body'),
     };
 
