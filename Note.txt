@@ -1,7 +1,7 @@
 Exploring React 19 Features - use() Hook, Actions & More (https://www.youtube.com/watch?v=EPaLg4U_K1o)
 
 https://github.com/bradtraversy/react-19-playground
-https://github.com/Annie-Huang?tab=repositories
+https://github.com/Annie-Huang/react-19-playground
 
 ---------------------------------------------------------------------------------
 

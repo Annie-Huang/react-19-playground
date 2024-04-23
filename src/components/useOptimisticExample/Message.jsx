@@ -1,5 +1,8 @@
 import { useOptimistic, useState, useRef } from 'react';
 
+// https://react.dev/reference/react/useOptimistic
+// I am actually a bit confused by the step of this example
+
 const MessageForm = ({ addOptimisticMessage, sendMessage }) => {
   // Create a reference to the form
   const formRef = useRef();
@@ -33,6 +36,13 @@ const MessageForm = ({ addOptimisticMessage, sendMessage }) => {
 };
 
 const Thread = ({ messages, sendMessage }) => {
+  /*
+      function useOptimistic<State, Action>(
+        passthrough: State,
+        reducer: (state: State, action: Action) => State,
+    ): [State, (action: Action) => void];
+  * */
+
   // The useOptimistic hook is used to add an optimistic message to the list of messages
   const [optimisticMessages, addOptimisticMessage] = useOptimistic(
     messages,
