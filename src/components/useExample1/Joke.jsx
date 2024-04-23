@@ -2,6 +2,7 @@ import { use, Suspense } from 'react';
 
 const fetchData = async () => {
   const res = await fetch('https://api.chucknorris.io/jokes/random');
+  // !!! Don't use await in the below because the use() hook in the JokeItem will resolve the promise.
   return res.json();
 };
 
