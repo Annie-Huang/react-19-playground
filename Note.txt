@@ -7,6 +7,8 @@ https://github.com/Annie-Huang/react-19-playground
 
 npm i react@experimental react-dom@experimental
 
+PS C:\react\react-19-playground> npm i vite-bundle-visualizer
+
 
 -----------------------------
 
