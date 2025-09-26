@@ -1,5 +1,6 @@
 import { useFormState } from 'react-dom';
 
+// Use formData instead of queryData will make better sense in below
 const addToCart = (prevState, queryData) => {
   console.log('prevState=', prevState);
   console.log('queryData=', queryData);
@@ -7,7 +8,7 @@ const addToCart = (prevState, queryData) => {
 
   const itemID = queryData.get('itemID');
   if (itemID === '1') {
-    return 'Added to cart';
+    return 'Added to cart'; // 3. return the new state of the message.
   } else {
     return "Couldn't add to cart: the item is sold out.";
   }
@@ -21,6 +22,7 @@ const AddToCartForm = ({ itemID, itemTitle }) => {
         permalink?: string,
     ): [state: Awaited<State>, dispatch: () => void];
   * */
+  // 1. call addToCart action
   const [message, formAction] = useFormState(addToCart, null);
 
   return (
@@ -29,6 +31,7 @@ const AddToCartForm = ({ itemID, itemTitle }) => {
       className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'
     >
       <h2 className='text-xl font-bold mb-4'>{itemTitle}</h2>
+      {/* 2. pass itemID={itemID} via input */}
       <input type='hidden' name='itemID' value={itemID} />
       <button
         type='submit'
@@ -36,6 +39,8 @@ const AddToCartForm = ({ itemID, itemTitle }) => {
       >
         Add to Cart
       </button>
+
+      {/* 4. display in UI */}
       <div className='mt-4 text-sm text-gray-700'>{message}</div>
     </form>
   );
