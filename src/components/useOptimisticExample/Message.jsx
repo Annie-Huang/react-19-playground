@@ -43,6 +43,18 @@ const Thread = ({ messages, sendMessage }) => {
     ): [State, (action: Action) => void];
   * */
 
+  /*  // What to do while we're waiting for action to finish running?
+  const [optimisticState, addOptimistic] = useOptimistic(
+    state,
+    // updateFn
+    (state, newMessage) => {
+      // merge and return new state with optimistic value.
+    },
+  );
+  // e.g. when user send a message of 'yeah lol', while we are waiting, add it to be
+  //      'yeah lol (sending)',
+  //      when api return, change it to 'yeah lol (delivered)'*/
+
   // The useOptimistic hook is used to add an optimistic message to the list of messages
   const [optimisticMessages, addOptimisticMessage] = useOptimistic(
     messages,
@@ -52,7 +64,7 @@ const Thread = ({ messages, sendMessage }) => {
         text: newMessage,
         sending: true,
       },
-    ]
+    ],
   );
 
   return (
